@@ -1,0 +1,23 @@
+# videos_dataset
+
+train: 
+  dataset_dir: data/3DPW_x_AGen/data/train
+  set: "train"
+  batch_size: 1  
+  shuffle: True   
+  num_workers: 0
+
+valid: 
+  dataset_dir: data/3DPW_x_AGen/data/valid
+  set: "valid"
+  batch_size: 1  
+  N_validation_batches: 10
+  shuffle: True   
+  num_workers: 8  
+
+test: 
+  dataset_dir: data/3DPW_x_AGen/data/test
+  set: "test"
+  batch_size: 1  
+  shuffle: True   
+  num_workers: 0  

@@ -1,0 +1,58 @@
+metainfo:
+    gender: 'male'
+    data_dir : parkinglot/
+    subject: "parkinglot"
+    type: "train"
+    start_frame: 0
+    end_frame: 42
+
+train:
+    type: "VideoTrain"
+    batch_size: 1
+    drop_last: False
+    shuffle: False
+    worker: 0
+
+    num_sample: 2048   # 1024
+
+    sampling: "uniform"   # "uniform" or "implicit_sdf"
+
+    size: "reduced" # "reduced" or "full
+    frame_idxs: [0, 22, 45, 68, 91, 114, 137, 160, 183, 206, 229, 252, 275, 298, 321, 344, 367, 390, 413, 436, 459, 
+                482, 505, 528, 551, 574, 597, 620, 643, 666, 689, 712, 735, 758, 781, 804, 827, 850, 873, 896, 919, 941]   # Frames to reconstruct, 42 uniform in 0-941
+
+valid:
+    type: "VideoVal"
+    image_id: 0
+    batch_size: 1
+    drop_last: False
+    shuffle: False
+    worker: 0
+
+    num_sample : -1
+    pixel_per_batch: 1024 
+
+    sampling: "uniform"   # "uniform" or "implicit_sdf"
+
+    size: "reduced" # "reduced" or "full
+    frame_idxs: [0, 22, 45, 68, 91, 114, 137, 160, 183, 206, 229, 252, 275, 298, 321, 344, 367, 390, 413, 436, 459, 
+                482, 505, 528, 551, 574, 597, 620, 643, 666, 689, 712, 735, 758, 781, 804, 827, 850, 873, 896, 919, 941]   # Frames to reconstruct, 42 uniform in 0-941
+
+test:
+    type: "VideoTest"
+    image_id: 0
+    batch_size: 1
+    drop_last: False
+    shuffle: False
+    worker: 0
+
+    num_sample : -1
+    pixel_per_batch: 2048
+
+    sampling: "uniform"   # "uniform" or "implicit_sdf"
+
+    mode: "short_time" # "inference_time" or "short_time"
+    size: "reduced" # "tiny", "reduced" or "full"
+    frame_idxs: [0, 22, 45, 68, 91, 114, 137, 160, 183, 206, 229, 252, 275, 298, 321, 344, 367, 390, 413, 436, 459, 
+                482, 505, 528, 551, 574, 597, 620, 643, 666, 689, 712, 735, 758, 781, 804, 827, 850, 873, 896, 919, 941]   # Frames to reconstruct, 42 uniform in 0-941
+    pretrained: False

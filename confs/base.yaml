@@ -1,0 +1,20 @@
+hydra:
+    run:
+        dir: "../outputs"
+
+defaults:
+  # AGen model configuration
+  - videos_dataset: dataset
+  # Video reconstruction configuration
+  - model: model
+  - dataset: video
+  - _self_
+
+seed: 42
+project_name: "AGen_model"
+exp: ${dataset.train.type}
+exp_num: "0"
+run: ${dataset.metainfo.subject}
+gpus: [4]
+max_duration_seconds: 1800
+refinement_epochs: 10
