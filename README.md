@@ -18,20 +18,20 @@ mv /path/to/smpl/models/basicModel_f_lbs_10_207_0_v1.0.0.pkl code/lib/smpl/smpl_
 mv /path/to/smpl/models/basicmodel_m_lbs_10_207_0_v1.0.0.pkl code/lib/smpl/smpl_model/SMPL_MALE.pkl
 ```
 ## Download preprocessed demo data
-You can quickly start trying out Vid2Avatar with a preprocessed demo sequence including the pre-trained checkpoint. This can be downloaded from [Google drive](https://drive.google.com/drive/u/1/folders/1AUtKSmib7CvpWBCFO6mQ9spVrga_CTU4) which is originally a video clip provided by [NeuMan](https://github.com/apple/ml-neuman). Put this preprocessed demo data under the folder `data/` and put the folder `checkpoints` under `outputs/parkinglot/`.
+A video from the Neumann dataset is provided already preprocessed as an example, which can be found at [Google Drive](https://drive.google.com/drive/folders/1nKyawEA9E7OyXuGmdVzBKyCwS8ashGHJ?usp=drive_link). Also, in the same folder, a number of checkpoints is provided to reproduce the results. To further reproduce the results on the 3DPW dataset, we refer to the download of the official dataset at [3DPW Dataset](https://virtualhumans.mpi-inf.mpg.de/3DPW/).
 
 ## Training
 To perform the training of the model it is only required to input the wanted parameters in the configuration files, under the folder 'confs', and run
 ```
 cd AGen
-python train.py
+python AGen_train.py
 ```
 The training is logged using Weights&Biases, and the outputs can be found under the folder 'outputs' for both the validation on the training data during training, as well as the validation on the unseen validation set.
 ## Test
 To reproduce the results it is sufficient to modify the path in the AGen_test.py script to point to a given model checkpoint, and run the script with 
 ```
 cd code
-python test.py
+python AGen_test.py
 ```
 ## 3D Visualization
 We use [AITViewer](https://github.com/eth-ait/aitviewer) to visualize the human models in 3D. First install AITViewer: `pip install aitviewer imgui==1.4.1`, and then run the following command to visualize the canonical mesh (--mode static), deformed mesh sequence (--mode dynamic), or dynamic canonical surface (--mode dynamic_canonical_train):
